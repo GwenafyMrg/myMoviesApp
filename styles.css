@@ -1,51 +1,222 @@
+/* Variables de couleurs du site : */
+:root {
+    --primary-bg: #1a1a2e;    /* Bleu nuit profond pour le header */
+    --secondary-bg: #16213e;  /* Bleu légèrement plus clair pour les blocs */
+    --bouton: #e94560;        /* Rose/Rouge vif pour les boutons */
+    --text-main: #ffffff;     /* Texte blanc */
+    --text-dim: #a2a2a2;      /* Texte grisé pour le salut */
+    --gold: #f1c40f;          /* Or pour les notes */
+    --body-bg: #f4f4f9;       /* Gris très clair pour le fond de page */
+}
+
 body {
-    background-color: whitesmoke;
-    justify-content: center;
+    background-color: var(--body-bg);
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
 }
 
 header {
-    margin: auto;
-    height: 15vh;
-    width: 95vw;
-    background-color: lightblue;
+    min-height: 12vh;
+    width: 100%;
+    background-color: var(--primary-bg);
+    /* alignement horizontal */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 30px;
+    box-sizing: border-box;
+    color: var(--text-main);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
 }
 
 .Header-components {
-    margin: 10px;
-    height: 100%;
-    background-color: lightgreen;
-    width: 25vw;
+    display: flex;
+    align-items: center;
+}
+
+/* Section Gauche : Titre */
+h1 {
+    font-size: 32px;
+    font-variant: small-caps;
+    font-weight: bold;
+    margin: 0;
+    color: var(--text-main);
+}
+
+/* Forcer l'alignement horizontal du formulaire de recherche */
+.search-form {
+    display: flex;       /* Aligne les enfants (input et button) sur une ligne */
+    flex-direction: row; /* Direction horizontale */
+    align-items: center; /* Centre verticalement les éléments entre eux */
+    gap: 0;              /* Supprime l'espace si vous voulez qu'ils soient collés, sinon mettez 5px */
+    width: 100%;
+}
+
+.searchBar-div {
+    flex-grow: 1;
+    max-width: 450px;
+    margin: 0 20px;
+}
+
+/* Ajustement de l'input pour qu'il ne pousse pas le bouton hors de l'écran */
+#searchBar {
+    flex-grow: 1;        /* L'input prend tout l'espace disponible restant */
+    height: 38px;
+    padding: 0 15px;
+    border-radius: 20px 0 0 20px; /* Arrondi seulement à gauche pour "coller" au bouton */
+    border: none;
+    background-color: var(--secondary-bg);
+    color: white;
+    outline: none;
+}
+
+/* Ajustement du bouton pour qu'il soit accolé à l'input */
+.btn-search {
+    height: 38px;
+    padding: 0 15px;
+    border-radius: 0 20px 20px 0; /* Arrondi seulement à droite */
+    background-color: var(--bouton);
+    color: white;
+    border: none;
+    cursor: pointer;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.searchBar-div {
-    width: 40vw;
+#searchBar:focus {
+    box-shadow: 0 0 8px var(--bouton);
 }
 
-#searchBar {
-    height: 25px;
-    width: 90%;
-}
-
+/* Section Droite : Menu */
 .Interactive-header-div {
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column; /* Force l'affichage sur deux lignes, alignement vertical */
+    align-items: flex-end;  /* Aligne à droite */
+    justify-content: center;
+    gap: 8px;
 }
 
-h1 {
-    width: 100%;
-    /* background-color: red; */
-    font-size: 40px;
-    font-variant: small-caps;
-    text-align: left;
+.Interactive-header-div p {
+    margin: 0;
+    font-size: 14px;
+    color: var(--text-main);
+}
+
+.nav-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Boutons */
+button, .menu-btn {
+    background-color: var(--bouton);
+    border: none;
+    color: white;
+    padding: 6px 18px;
+    border-radius: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+button:hover, .menu-btn:hover {
+    filter: brightness(1.2);
+    transform: translateY(-2px);
+}
+
+/* --- Cartes de films --- */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.movie-card {
+    background: white;
+    margin-bottom: 30px;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    border-left: 6px solid var(--bouton);
+    transition: 0.3s;
+}
+
+.movie-title {
+    margin: 0 0 18px 0; /* Espace vertical entre titre et note */
+    font-size: 1.5rem;
+    color: #1a1a2e;
+    font-weight: 700;
+}
+
+.movie-note {
     font-weight: bold;
+    color: var(--gold);
+    background: #fff9e6;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 0.95rem;
 }
 
+/* Footer */
+footer {
+    text-align: center;
+    padding: 30px;
+    color: #777;
+}
 
-/* 21:10 */
+.nav-link {
+    color: white;
+    text-decoration: none;
+    margin-right: 15px;
+    font-size: 0.9rem;
+}
+
+.nav-link:hover {
+    text-decoration: underline;
+}
+
+/* --- Bouton Menu --- */
+button, .menu-btn {
+    background-color: #e94560;
+    border: none;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* --- MOBILE (Media Query) --- */
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        height: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .Header-components {
+        width: 100% !important;
+        margin: 5px 0;
+    }
+
+    h1 {
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .searchBar-div {
+        max-width: 100%;
+        width: 100%;
+        margin: 0;
+    }
+
+    .Interactive-header-div {
+        align-items: center;
+    }
+}

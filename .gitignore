@@ -3,3 +3,6 @@ config.php
 
 #Fichiers de test :
 HTML_visualizer.html
+
+#Autres :
+TAF.txt

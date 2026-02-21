@@ -146,6 +146,14 @@ button:hover, .menu-btn:hover {
     transition: 0.3s;
 }
 
+/* Effet au survol de la carte entière */
+.movie-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    border-left-color: #f1c40f; /* Change la couleur de la bordure au survol */
+    transition: all 0.3s ease;
+}
+
 .movie-title {
     margin: 0 0 18px 0; /* Espace vertical entre titre et note */
     font-size: 1.5rem;
